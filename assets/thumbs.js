@@ -202,8 +202,10 @@
         }
       }
 
-      // Next piece cycles while it drops toward the stack.
-      var key = SHAPE_KEYS[Math.floor(t * 1.2) % SHAPE_KEYS.length];
+      // Next piece cycles while it drops toward the stack. The modulo is
+      // guarded because t can be fractional and, briefly, negative.
+      var step = Math.abs(Math.floor(t * 1.2)) % SHAPE_KEYS.length;
+      var key = SHAPE_KEYS[step];
       var shape = SHAPES[key];
       var drop = 6 + ((t * 26) % 42);
       for (var sr = 0; sr < shape.length; sr++) {
@@ -302,8 +304,11 @@
       for (var i = 0; i < items.length; i++) {
         var p = items[i];
         if (!p.visible) continue;
+        // rAF hands back the frame's start time, which can predate the
+        // performance.now() captured at setup, so clamp to stay >= 0.
+        var t = Math.max(0, (now - p.t0) / 1000);
         p.ctx.clearRect(0, 0, 80, 60);
-        p.scene(p.ctx, (now - p.t0) / 1000);
+        p.scene(p.ctx, t);
       }
       requestAnimationFrame(loop);
     };
