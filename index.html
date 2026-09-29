@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arcade — six retro games</title>
+<meta name="description" content="Six classic 8-bit arcade games rebuilt for the browser. Snake, Pong, Breakout, Space Invaders, Tetris and Pac-Man. No install, no signup, no ads.">
+<meta name="theme-color" content="#08080f">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles/site.css">
+</head>
+<body>
+
+<a class="sr-only" href="#games">Skip to games</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="./">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+      </span>
+      Arcade
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span class="nav-toggle__bars" aria-hidden="true"></span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" data-open="false" aria-label="Main">
+      <ul>
+        <li><a href="./" aria-current="page">Home</a></li>
+        <li><a href="#games">Games</a></li>
+        <li><a href="#how">How to play</a></li>
+        <li><a href="https://github.com/bishalxrauniyar/test-game" rel="noopener">Source</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="container hero__inner">
+      <div>
+        <p class="eyebrow">Insert coin · 6 games · no download</p>
+        <h1>Six classic games,<br>one <em>cabinet</em>.</h1>
+        <p class="lede" style="margin-top:1.25rem">
+          Snake, Pong, Breakout, Space Invaders, Tetris and Pac-Man — rebuilt as
+          8-bit pixel art in plain HTML, CSS and JavaScript. Press start, play
+          forever, forget nothing.
+        </p>
+        <div class="hero__actions" style="margin-top:2rem">
+          <a class="btn" href="#games">
+            Choose a game
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="#how">How to play</a>
+        </div>
+      </div>
+
+      <div class="hero__stats">
+        <div class="hero__stat"><strong>6</strong><span>Games on the shelf</span></div>
+        <div class="hero__stat"><strong>0 KB</strong><span>Dependencies to load</span></div>
+        <div class="hero__stat"><strong>&lt; 1s</strong><span>Time to start playing</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="games">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">The collection</p>
+          <h2 style="margin-top:.5rem">Pick a game</h2>
+          <p>Each one loads on its own page, so you can bookmark a single game if that's all you came for.</p>
+        </div>
+      </div>
+
+      <ul class="game-grid">
+
+        <li>
+          <article class="game-card">
+            <div class="game-card__art" aria-hidden="true">
+              <canvas data-thumb="snake" width="80" height="60"></canvas>
+            </div>
+            <div class="game-card__body">
+              <div class="game-card__meta">
+                <span class="tag">Arcade</span>
+                <span>1 player</span>
+              </div>
+              <h3 class="game-card__title">Snake</h3>
+              <p class="game-card__desc">Eat the fruit, grow the snake, and don't bite yourself. Speed ramps up as you go.</p>
+              <p class="game-card__foot">Play Snake
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+              </p>
+              <a class="game-card__link" href="games/snake/">Play Snake</a>
+            </div>
+          </article>
+        </li>
+
+        <li>
+          <article class="game-card">
+            <div class="game-card__art" aria-hidden="true">
+              <canvas data-thumb="pong" width="80" height="60"></canvas>
+            </div>
+            <div class="game-card__body">
+              <div class="game-card__meta">
+                <span class="tag">Versus</span>
+                <span>1 or 2 players</span>
+              </div>
+              <h3 class="game-card__title">Pong</h3>
+              <p class="game-card__desc">The original 1972 table tennis duel. First to eleven takes the cabinet.</p>
+              <p class="game-card__foot">Play Pong
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+              </p>
+              <a class="game-card__link" href="games/pong/">Play Pong</a>
+            </div>
+          </article>
+        </li>
+
+        <li>
+          <article class="game-card">
+            <div class="game-card__art" aria-hidden="true">
+              <canvas data-thumb="breakout" width="80" height="60"></canvas>
+            </div>
+            <div class="game-card__body">
+              <div class="game-card__meta">
+                <span class="tag">Arcade</span>
+                <span>1 player</span>
+              </div>
+              <h3 class="game-card__title">Breakout</h3>
+              <p class="game-card__desc">Bounce the ball, knock out every brick, and keep the ball off the floor.</p>
+              <p class="game-card__foot">Play Breakout
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+              </p>
+              <a class="game-card__link" href="games/breakout/">Play Breakout</a>
+            </div>
+          </article>
+        </li>
+
+        <li>
+          <article class="game-card">
+            <div class="game-card__art" aria-hidden="true">
+              <canvas data-thumb="invaders" width="80" height="60"></canvas>
+            </div>
+            <div class="game-card__body">
+              <div class="game-card__meta">
+                <span class="tag tag--hot">Shooter</span>
+                <span>1 player</span>
+              </div>
+              <h3 class="game-card__title">Space Invaders</h3>
+              <p class="game-card__desc">The descending fleet drops one step at a time. Clear the wave before they reach you.</p>
+              <p class="game-card__foot">Play Space Invaders
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+              </p>
+              <a class="game-card__link" href="games/invaders/">Play Space Invaders</a>
+            </div>
+          </article>
+        </li>
+
+        <li>
+          <article class="game-card">
+            <div class="game-card__art" aria-hidden="true">
+              <canvas data-thumb="tetris" width="80" height="60"></canvas>
+            </div>
+            <div class="game-card__body">
+              <div class="game-card__meta">
+                <span class="tag tag--hot-2">Puzzle</span>
+                <span>1 player</span>
+              </div>
+              <h3 class="game-card__title">Tetris</h3>
+              <p class="game-card__desc">Stack the falling pieces and lock complete rows. It gets faster with every line.</p>
+              <p class="game-card__foot">Play Tetris
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+              </p>
+              <a class="game-card__link" href="games/tetris/">Play Tetris</a>
+            </div>
+          </article>
+        </li>
+
+        <li>
+          <article class="game-card">
+            <div class="game-card__art" aria-hidden="true">
+              <canvas data-thumb="pacman" width="80" height="60"></canvas>
+            </div>
+            <div class="game-card__body">
+              <div class="game-card__meta">
+                <span class="tag tag--new">Maze</span>
+                <span>1 player</span>
+              </div>
+              <h3 class="game-card__title">Pac-Man</h3>
+              <p class="game-card__desc">Eat every pellet in the maze. Power pellets turn the ghosts blue — and cowardly.</p>
+              <p class="game-card__foot">Play Pac-Man
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+              </p>
+              <a class="game-card__link" href="games/pacman/">Play Pac-Man</a>
+            </div>
+          </article>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--tight" id="how">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Good to know</p>
+          <h2 style="margin-top:.5rem">How it works</h2>
+        </div>
+      </div>
+      <ul class="howto">
+        <li>
+          <h3>No account, no ads</h3>
+          <p>Every game is a single page that runs entirely in your browser. We never ask for your email.</p>
+        </li>
+        <li>
+          <h3>Keyboard and touch</h3>
+          <p>Arrow keys or <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> to move, <kbd>Space</kbd> to act. On a phone, use the on-screen pad or swipe.</p>
+        </li>
+        <li>
+          <h3>Scores stay local</h3>
+          <p>Your high scores are kept in this browser only, so nothing is uploaded and nothing can leak.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <p>&copy; <span data-year>2026</span> Arcade. Built with plain HTML, CSS and JavaScript.</p>
+    <ul class="site-footer__links">
+      <li><a href="https://github.com/bishalxrauniyar/test-game" rel="noopener">GitHub</a></li>
+      <li><a href="#games">Games</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="assets/site.js" defer></script>
+<script src="assets/thumbs.js" defer></script>
+</body>
+</html>

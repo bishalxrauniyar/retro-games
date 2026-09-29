@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Snake — Arcade</title>
+<meta name="description" content="Classic Snake, arcade style. Arrow keys, WASD or swipe. Grow the snake, dodge the walls.">
+<meta name="theme-color" content="#08080f">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../styles/site.css">
+</head>
+<body>
+
+<a class="sr-only" href="#screen">Skip to the game</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="../../">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 10h2V8h2V6h2V4h2v16H10v-2H8v-2H6v-2H4z"/></svg>
+      </span>
+      Arcade
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span class="nav-toggle__bars" aria-hidden="true"></span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" data-open="false" aria-label="Main">
+      <ul>
+        <li><a href="../../">Home</a></li>
+        <li><a href="../../#games">Games</a></li>
+        <li><a href="../../#how">How to play</a></li>
+        <li><a href="https://github.com/bishalxrauniyar/test-game" rel="noopener">Source</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="game-main">
+  <div class="container">
+
+    <div class="game-head">
+      <div class="game-head__text">
+        <h1>SNAKE</h1>
+        <p>Eat the fruit, grow long, don't bite yourself.</p>
+      </div>
+      <a class="btn btn--ghost btn--sm" href="../../#games">All games</a>
+    </div>
+
+    <div class="cabinet">
+      <div class="cabinet__marquee">
+        <h2>Snake</h2>
+        <span class="stat"><span class="stat__label">Score</span> <span class="stat__value" id="sScore">0</span></span>
+        <span class="stat"><span class="stat__label">Best</span> <span class="stat__value" id="sBest">0</span></span>
+        <span class="stat"><span class="stat__label">Len</span> <span class="stat__value" id="sLen">3</span></span>
+        <span class="stat"><span class="stat__label">Lives</span> <span class="stat__value" id="sLives">3</span></span>
+      </div>
+
+      <div class="cabinet__screen">
+        <div class="screen" id="screen">
+          <canvas id="game" width="160" height="144" role="img"
+                  aria-label="Snake playfield. Move with the arrow keys or W A S D."></canvas>
+        </div>
+        <p class="status status--info" id="status" role="status">Press Enter or tap Start to play</p>
+      </div>
+
+      <div class="deck">
+        <button class="btn" id="start" type="button">Start</button>
+        <button class="btn btn--ghost btn--sm" id="sound" type="button" aria-pressed="true">Sound On</button>
+
+        <div class="pad pad--dpad" role="group" aria-label="Touch controls">
+          <button class="pad__btn pad__btn--up" type="button" data-pad="up" aria-label="Up">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M12 20V5M5 12l7-7 7 7"/></svg>
+          </button>
+          <button class="pad__btn pad__btn--left" type="button" data-pad="left" aria-label="Left">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M20 12H5M12 5v14"/></svg>
+          </button>
+          <button class="pad__btn pad__btn--a" type="button" data-pad="fire" aria-label="Pause">
+            <span style="font-size:11px">II</span>
+          </button>
+          <button class="pad__btn pad__btn--right" type="button" data-pad="right" aria-label="Right">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M20 12H5M12 5v14"/></svg>
+          </button>
+          <button class="pad__btn pad__btn--down" type="button" data-pad="down" aria-label="Down">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M12 4v15M5 12l7 7 7-7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="deck" style="border-top:0">
+        <div class="legend">
+          <div><kbd>&larr;</kbd><kbd>&uarr;</kbd><kbd>&darr;</kbd><kbd>&rarr;</kbd> or <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> to steer</div>
+          <div><kbd>Space</kbd> to pause</div>
+          <div>Swipe the screen to turn</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <p>&copy; <span data-year>2026</span> Arcade. Best score saved in this browser only.</p>
+    <ul class="site-footer__links">
+      <li><a href="../../#games">Games</a></li>
+      <li><a href="https://github.com/bishalxrauniyar/test-game" rel="noopener">GitHub</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="../../assets/site.js" defer></script>
+<script src="../../assets/engine.js" defer></script>
+<script src="snake.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Game Over — Arcade</title>
+<meta name="description" content="That page does not exist. Head back to the arcade and pick a game.">
+<meta name="theme-color" content="#08080f">
+<meta name="robots" content="noindex">
+<link rel="icon" data-base="assets/favicon.svg" type="image/svg+xml">
+<script>
+/* GitHub Pages serves this document for *any* missing path under the site,
+   so relative URLs would resolve against the broken address. Pin everything
+   to the site root when deployed, and to this directory when opened locally. */
+(function () {
+  var base = location.pathname.indexOf("/test-game/") === 0 ? "/test-game/" : "./";
+  function retarget() {
+    var nodes = document.querySelectorAll("[data-base]");
+    for (var i = 0; i < nodes.length; i++) {
+      nodes[i].setAttribute("href", base + nodes[i].getAttribute("data-base"));
+    }
+  }
+  // Run now for the two <link> tags already parsed, then again once the
+  // body links exist.
+  retarget();
+  document.addEventListener("DOMContentLoaded", retarget);
+})();
+</script>
+<link rel="stylesheet" data-base="styles/site.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" data-base="" href="./">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+      </span>
+      Arcade
+    </a>
+
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a data-base="" href="./">Home</a></li>
+        <li><a data-base="#games" href="#games">Games</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="game-main">
+  <div class="container">
+
+    <div class="game-head">
+      <div class="game-head__text">
+        <h1>GAME OVER</h1>
+        <p>That page is not on this cabinet. Insert a coin and try again.</p>
+      </div>
+    </div>
+
+    <div class="cabinet">
+      <div class="cabinet__screen">
+        <div class="screen" id="screen">
+          <canvas id="crash" width="160" height="144" role="img"
+                  aria-label="A broken pixel-art cabinet displaying the words game over."></canvas>
+        </div>
+        <p class="status status--over" id="status" role="status">Error 404 — cabinet not found</p>
+      </div>
+
+      <div class="deck">
+        <a class="btn" data-base="#games" href="#games">Pick a game</a>
+        <a class="btn btn--ghost" data-base="" href="./">Back to the arcade</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <p>&copy; <span data-year>2026</span> Arcade. Built with plain HTML, CSS and JavaScript.</p>
+    <ul class="site-footer__links">
+      <li><a data-base="#games" href="#games">Games</a></li>
+      <li><a href="https://github.com/bishalxrauniyar/test-game" rel="noopener">GitHub</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+/* The 404 page lives at the site root, so it can't rely on the shared
+   engine's relative paths. This is a few lines of plain canvas: draw a
+   blinking "GAME OVER" in the same palette as the rest of the site. */
+(function () {
+  "use strict";
+  var c = document.getElementById("crash");
+  if (!c) return;
+  var ctx = c.getContext("2d");
+  var W = c.width, H = c.height;
+
+  function resize() {
+    // Integer-scale to the CSS box, same rule the games use.
+    var box = c.getBoundingClientRect();
+    var scale = Math.max(1, Math.floor(Math.min(box.width / W, box.height / H)));
+    c.width = W * scale;
+    c.height = H * scale;
+    ctx.imageSmoothingEnabled = false;
+    ctx.scale(scale, scale);
+  }
+  resize();
+  window.addEventListener("resize", resize);
+
+  function text(str, x, y, color) {
+    ctx.fillStyle = color;
+    ctx.font = '8px "Press Start 2P", monospace';
+    ctx.fillText(str, x, y);
+  }
+
+  var t0 = 0;
+  function frame(now) {
+    if (!t0) t0 = now;
+    var t = (now - t0) / 1000;
+
+    ctx.fillStyle = "#05050a";
+    ctx.fillRect(0, 0, W, H);
+
+    // Faint maze-ish grid so the screen isn't a flat black rectangle.
+    ctx.fillStyle = "#10101e";
+    for (var y = 8; y < H - 8; y += 12) ctx.fillRect(8, y, W - 16, 1);
+
+    if (Math.floor(t * 1.5) % 2 === 0) {
+      text("GAME", 46, H / 2 - 6, "#ffd23f");
+      text("OVER", 46, H / 2 + 8, "#ff2e4d");
+    } else {
+      text("GAME", 46, H / 2 - 6, "#4a4a7a");
+      text("OVER", 46, H / 2 + 8, "#4a4a7a");
+    }
+
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

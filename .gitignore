@@ -1,0 +1,17 @@
+# Screenshots and browser-automation scratch output
+shot-*.png
+*-idle.png
+pacman-play.png
+.playwright-mcp/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Nothing here needs node_modules — the site has no build step — but keep
+# stray installs out of the deploy artifact if anyone experiments locally.
+node_modules/
+package-lock.json
