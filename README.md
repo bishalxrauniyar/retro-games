@@ -1,4 +1,4 @@
-# Arcade
+# Arcade Games
 
 Six classic 8-bit arcade games that run entirely in the browser. No build
 step, no framework, no dependencies — open a page and play.
